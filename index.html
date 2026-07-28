@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paula Cucurella</title>
+<meta name="description" content="Paula Cucurella — escritora, poeta, traductora y académica chilena. Poesía, ensayo, traducción, docencia e investigación. / Chilean writer, poet, translator and scholar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   Paula Cucurella — hoja de estilos compartida
+   Paleta: outdoors luminosa (papel cálido, salvia, terracota, cielo)
+   Tipografía: Fraunces (serif) + Inter (sans)
+   =========================================================== */
+:root{
+  --paper:#FCFAF4;
+  --paper-2:#F4EEE1;
+  --ink:#23291F;
+  --ink-soft:#5A6151;
+  --sage:#6C8158;
+  --sage-deep:#516343;
+  --clay:#C9744B;
+  --sky:#8AA7B0;
+  --line:#E4DCCB;
+  --line-2:#D8CFBB;
+  --max:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:'Fraunces',Georgia,serif;}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.01em;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 34px;}
+.wrap-narrow{max-width:760px;margin:0 auto;padding:0 34px;}
+.muted{color:var(--ink-soft);}
+
+/* NAV */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(252,250,244,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;}
+.brand{font-family:'Fraunces',serif;font-weight:500;font-size:21px;letter-spacing:.3px;text-decoration:none;}
+nav.menu{display:flex;gap:24px;}
+nav.menu a{text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);letter-spacing:.01em;position:relative;transition:color .2s;}
+nav.menu a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--clay);transition:width .25s;}
+nav.menu a:hover,nav.menu a.active{color:var(--ink);}
+nav.menu a:hover::after,nav.menu a.active::after{width:100%;}
+.menu-btn{display:none;background:none;border:0;font-size:24px;cursor:pointer;color:var(--ink);}
+
+/* HERO (home) */
+.hero{padding:96px 0 30px;}
+.hero .tag{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:30px;}
+.hero h1{font-size:clamp(52px,10vw,116px);font-weight:300;letter-spacing:-.02em;line-height:.94;}
+.hero h1 .l2{display:block;font-style:italic;color:var(--sage-deep);font-weight:400;}
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:44px;flex-wrap:wrap;}
+.hero-foot p{max-width:44ch;font-size:19px;color:var(--ink-soft);}
+.hero-foot .roles{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;}
+.rule{height:1px;background:var(--line-2);}
+
+/* PAGE HERO (subpages) */
+.page-hero{padding:70px 0 20px;}
+.page-hero .crumb{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);margin-bottom:18px;display:block;}
+.page-hero h1{font-size:clamp(40px,7vw,74px);font-weight:300;}
+.page-hero .sub{margin-top:22px;font-size:19px;color:var(--ink-soft);max-width:56ch;}
+
+/* SECTION base */
+section{padding:80px 0;}
+.lead-label{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:36px;}
+
+/* INDEX (editorial table of contents) */
+.idx a{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:baseline;text-decoration:none;padding:26px 6px;border-top:1px solid var(--line);transition:background .2s,padding .2s;}
+.idx a:last-child{border-bottom:1px solid var(--line);}
+.idx a:hover{background:var(--paper-2);padding-left:16px;padding-right:16px;}
+.idx .num{font-family:'Fraunces',serif;font-size:16px;color:var(--clay);}
+.idx .ti{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,40px);font-weight:400;}
+.idx .de{color:var(--ink-soft);font-size:15px;max-width:40ch;justify-self:start;}
+.idx a:hover .arrow{transform:translateX(6px);}
+.arrow{font-family:'Fraunces',serif;font-size:22px;color:var(--sage);transition:transform .2s;justify-self:end;}
+
+/* BOOKS */
+.books-sec{background:var(--paper-2);}
+.books-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:46px;flex-wrap:wrap;gap:16px;}
+.books-head h2{font-size:clamp(30px,4vw,44px);}
+.books-head a{text-decoration:none;color:var(--clay);font-weight:600;font-size:14px;}
+.books-head a:hover{text-decoration:underline;}
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;}
+.book{text-decoration:none;color:inherit;display:block;}
+.book .cover{aspect-ratio:3/4;border-radius:4px;position:relative;box-shadow:0 12px 30px rgba(35,41,31,.12);overflow:hidden;transition:transform .18s,box-shadow .22s;}
+.book:hover .cover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(35,41,31,.18);}
+.c1{background:linear-gradient(155deg,#D0885E,#B25E38);}
+.c2{background:linear-gradient(155deg,#8FAAB2,#5E828F);}
+.c3{background:linear-gradient(155deg,#7C9065,#4E603E);}
+.c4{background:linear-gradient(155deg,#B79A6A,#8A6E42);}
+.book .cover .t{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:#fff;font-family:'Fraunces',serif;font-size:19px;line-height:1.2;font-weight:400;}
+.book .yr{margin-top:18px;font-size:13px;font-weight:600;color:var(--sage);letter-spacing:.04em;}
+.book h3{margin-top:5px;font-size:20px;font-weight:400;}
+.book p{color:var(--ink-soft);font-size:14px;margin-top:3px;}
+
+/* PROJECTS */
+.proj-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:44px;flex-wrap:wrap;gap:14px;}
+.proj-head h2{font-size:clamp(30px,4vw,44px);font-weight:400;}
+.proj-head a{text-decoration:none;color:var(--clay);font-weight:600;font-size:14px;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.proj{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .18s,box-shadow .22s;}
+.proj:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(35,41,31,.12);}
+.proj .thumb{aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:22px;text-align:center;padding:16px;}
+.t-mig{background:linear-gradient(150deg,#8FAAB2,#5E828F);}
+.t-len{background:linear-gradient(150deg,#7C9065,#4E603E);}
+.t-tal{background:linear-gradient(150deg,#D0885E,#B25E38);}
+.proj .play{position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:18px;padding-left:4px;}
+.proj .body{padding:20px 22px 24px;}
+.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:12px;}
+.b-live{background:#E8F0E1;color:var(--sage-deep);}
+.b-arch{background:#F1E8DA;color:#8A6A46;}
+.b-video{background:#E4EEF1;color:#4E7280;}
+.proj h3{font-size:20px;font-weight:400;margin-bottom:6px;}
+.proj p{color:var(--ink-soft);font-size:14px;}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:start;}
+.portrait{aspect-ratio:4/5;border-radius:6px;background:linear-gradient(160deg,#9DB39A,#6C8158 62%,#516343);position:relative;overflow:hidden;box-shadow:0 16px 40px rgba(35,41,31,.16);}
+.portrait .ph{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:20px;color:rgba(255,255,255,.9);font-size:13px;}
+.portrait svg{position:absolute;inset:0;width:100%;height:100%;}
+.about .lead{font-family:'Fraunces',serif;font-size:clamp(24px,3.4vw,32px);font-weight:300;line-height:1.32;letter-spacing:-.01em;}
+.about .body p{color:var(--ink-soft);margin-top:20px;font-size:17px;}
+
+/* STRIP — luminous warm band */
+.strip{background:linear-gradient(120deg,#F3EEE0 0%,#E9F0E2 100%);color:var(--ink);text-align:center;}
+.strip .lead-label{color:var(--sage);}
+.strip p{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(22px,3.4vw,30px);line-height:1.4;max-width:32ch;margin:0 auto;color:var(--ink);}
+.strip em{color:var(--clay);font-style:italic;}
+
+/* PROSE (article & content pages) */
+.prose h2{font-size:clamp(26px,3.4vw,34px);margin:44px 0 14px;font-weight:400;}
+.prose h3{font-size:22px;margin:32px 0 10px;font-weight:400;}
+.prose p{margin:0 0 18px;color:var(--ink);}
+.prose p.muted{color:var(--ink-soft);}
+.prose a{color:var(--sage-deep);text-decoration:underline;text-underline-offset:3px;}
+.prose ul{margin:0 0 20px 22px;}
+.prose li{margin-bottom:8px;}
+.prose blockquote{border-left:3px solid var(--clay);padding:6px 0 6px 22px;margin:22px 0;font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--ink-soft);}
+
+/* ARTICLE LIST */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
+.filters button{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);background:none;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;cursor:pointer;transition:all .18s;}
+.filters button:hover{color:var(--ink);border-color:var(--sage);}
+.filters button.on{background:var(--sage);color:#fff;border-color:var(--sage);}
+.alist a{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline;text-decoration:none;padding:20px 6px;border-top:1px solid var(--line);transition:background .2s,padding .2s;}
+.alist a:last-child{border-bottom:1px solid var(--line);}
+.alist a:hover{background:var(--paper-2);padding-left:14px;padding-right:14px;}
+.alist .at{font-family:'Fraunces',serif;font-size:clamp(19px,2.4vw,24px);font-weight:400;}
+.alist .ak{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);white-space:nowrap;}
+
+/* CONTACT */
+.contact{text-align:center;}
+.contact h2{font-size:clamp(34px,6vw,60px);font-weight:300;max-width:16ch;margin:0 auto 22px;}
+.contact p{color:var(--ink-soft);max-width:44ch;margin:0 auto 34px;}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;background:var(--sage);color:#fff;transition:transform .15s,box-shadow .2s,background .2s;border:0;cursor:pointer;}
+.btn:hover{background:var(--sage-deep);transform:translateY(-2px);box-shadow:0 10px 26px rgba(81,99,67,.3);}
+.btn-ghost{background:none;border:1.5px solid var(--line-2);color:var(--ink);}
+.btn-ghost:hover{background:none;border-color:var(--sage);color:var(--sage-deep);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:44px 0;}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft);}
+.foot-inner a{text-decoration:none;color:var(--ink-soft);margin-left:22px;}
+.foot-inner a:hover{color:var(--sage-deep);}
+
+/* NOTE box (for pending content) */
+.note{background:#FBF3E7;border:1px dashed var(--clay);border-radius:10px;padding:18px 22px;color:#8A6A46;font-size:14.5px;margin:24px 0;}
+
+@media(max-width:860px){
+  nav.menu{display:none;}
+  .menu-btn{display:block;}
+  .books,.pgrid{grid-template-columns:1fr;max-width:360px;}
+  .about{grid-template-columns:1fr;gap:32px;}
+  .portrait{max-width:320px;}
+  .idx a{grid-template-columns:40px 1fr;}
+  .idx .de,.idx .arrow{display:none;}
+}
+
+
+/* ---- i18n ---- */
+body.lang-en .es{display:none;} body.lang-es .en{display:none;}
+/* ---- router ---- */
+.page{display:none;} .page.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+/* ---- splash ---- */
+#splash{position:fixed;inset:0;z-index:200;background:linear-gradient(150deg,#FCFAF4,#EFF2E8);display:flex;align-items:center;justify-content:center;}
+#splash .box{text-align:center;padding:40px;}
+#splash h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(40px,8vw,72px);}
+#splash h1 .l2{display:block;font-style:italic;color:var(--sage-deep);}
+#splash p{color:var(--ink-soft);margin:18px 0 30px;letter-spacing:.02em;}
+#splash .langs{display:flex;gap:16px;justify-content:center;}
+#splash .langs button{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;padding:15px 40px;border-radius:999px;border:1.5px solid var(--line-2);background:#fff;cursor:pointer;transition:all .18s;}
+#splash .langs button:hover{background:var(--sage);color:#fff;border-color:var(--sage);transform:translateY(-2px);}
+/* lang toggle in nav */
+.lang-toggle{display:flex;gap:2px;align-items:center;margin-left:8px;border:1px solid var(--line-2);border-radius:999px;overflow:hidden;}
+.lang-toggle button{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;padding:6px 11px;border:0;background:none;color:var(--ink-soft);cursor:pointer;}
+.lang-toggle button.on{background:var(--sage);color:#fff;}
+/* ---- cv lists ---- */
+.sec-body{padding:10px 0 40px;} .wrap-narrow{max-width:820px;}
+.subhead{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:38px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+.cv-list{list-style:none;margin:0 0 10px;}
+.cv-list li{padding:11px 0 11px 20px;border-bottom:1px solid var(--line);position:relative;color:var(--ink-soft);font-size:15.5px;line-height:1.55;}
+.cv-list li:before{content:"";position:absolute;left:0;top:19px;width:7px;height:7px;border-radius:50%;background:var(--clay);opacity:.5;}
+.cv-list li em{color:var(--ink);font-style:italic;}
+.cv-list.antol li{font-size:16.5px;}
+.ayr{color:var(--sage-deep);font-weight:600;}
+.pending{color:var(--clay);font-size:13px;font-style:italic;}
+.cv-list li a{color:var(--sage-deep);}
+.intro{font-size:17px;margin-bottom:10px;}
+.crumb-link{font-size:13px;color:var(--sage);text-decoration:none;font-weight:600;margin-right:12px;}
+.crumb-link:hover{text-decoration:underline;}
+.bilingual-bio .lead{font-family:'Fraunces',serif;font-size:clamp(23px,3.2vw,30px);font-weight:300;line-height:1.34;color:var(--ink);}
+.bilingual-bio p{color:var(--ink-soft);margin-top:18px;font-size:17px;}
+.cvbtn{margin:26px 0 6px;}
+.sec-index{padding-top:60px;} .idx .num{display:none;}
+.idx a{grid-template-columns:1fr auto auto;}
+.proj.wide{display:flex;flex-direction:column;}
+.proj.wide .thumb{aspect-ratio:21/7;} .proj.wide .thumb span{font-size:24px;}
+.proj .sub{font-style:italic;color:var(--ink-soft);font-weight:400;font-family:'Inter',sans-serif;font-size:15px;}
+.proj .link{color:var(--sage);font-size:13px;margin-top:8px;font-weight:600;}
+.pgrid.one{grid-template-columns:1fr;gap:22px;max-width:none;}
+.proj.static{cursor:default;} .proj.static:hover{transform:none;box-shadow:none;}
+.page-hero{padding:56px 0 10px;}
+@media(max-width:860px){ .lang-toggle{margin:0;} }
+
+</style>
+</head>
+<body class="lang-es">
+
+<div id="splash">
+  <div class="box">
+    <h1>Paula<span class="l2">Cucurella</span></h1>
+    <p>Escritora · Poeta · Traductora &nbsp;/&nbsp; Writer · Poet · Translator</p>
+    <div class="langs">
+      <button data-set="es">Español</button>
+      <button data-set="en">English</button>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#inicio" class="brand" data-p="inicio">Paula Cucurella</a>
+    <nav class="menu"><a href="#sobre" data-p="sobre"><span class="es">Sobre mí</span><span class="en">About</span></a><a href="#libros" data-p="libros"><span class="es">Libros</span><span class="en">Books</span></a><a href="#antologias" data-p="antologias"><span class="es">Antologías</span><span class="en">Anthologies</span></a><a href="#publicaciones" data-p="publicaciones"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="#escritura" data-p="escritura"><span class="es">Escritura</span><span class="en">Writing</span></a><a href="#traduccion" data-p="traduccion"><span class="es">Traducción</span><span class="en">Translation</span></a><a href="#docencia" data-p="docencia"><span class="es">Docencia</span><span class="en">Teaching</span></a><a href="#contacto" data-p="contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+      <span class="lang-toggle"><button data-set="es" class="on">ES</button><button data-set="en">EN</button></span>
+    </nav>
+    <button class="menu-btn" aria-label="Menú">☰</button>
+  </div>
+</header>
+
+<section class="page" id="inicio">
+ <div class="hero"><div class="wrap">
+   <span class="tag"><span class="es">Escritura · Poesía · Traducción · Investigación</span><span class="en">Writing · Poetry · Translation · Research</span></span>
+   <h1>Paula<span class="l2">Cucurella</span></h1>
+   <div class="hero-foot">
+     <p><span class="es">Escritora, poeta y traductora. Un espacio abierto para leer mi obra: poesía, ensayo, traducción, docencia e investigación.</span><span class="en">Writer, poet and translator. An open space to read my work: poetry, essay, translation, teaching and research.</span></p>
+     <div class="roles">Chile ⟶ Buffalo ⟶ California</div>
+   </div>
+ </div></div>
+ <div class="wrap"><div class="rule"></div></div>
+ <div class="wrap sec-index">
+   <div class="lead-label"><span class="es">Índice</span><span class="en">Index</span></div>
+   <div class="idx"><a href="#sobre"><span class="num"></span>
+    <span class="ti"><span class="es">Sobre mí</span><span class="en">About</span></span>
+    <span class="de"><span class="es">Biografía, formación, cargos y CV.</span><span class="en">Bio, education, positions and CV.</span></span><span class="arrow">→</span></a><a href="#libros"><span class="num"></span>
+    <span class="ti"><span class="es">Libros</span><span class="en">Books</span></span>
+    <span class="de"><span class="es">Poesía y ensayo de mi autoría.</span><span class="en">Poetry and essay I've authored.</span></span><span class="arrow">→</span></a><a href="#antologias"><span class="num"></span>
+    <span class="ti"><span class="es">Antologías</span><span class="en">Anthologies</span></span>
+    <span class="de"><span class="es">Antologías que he seleccionado y editado.</span><span class="en">Anthologies I've selected and edited.</span></span><span class="arrow">→</span></a><a href="#publicaciones"><span class="num"></span>
+    <span class="ti"><span class="es">Publicaciones</span><span class="en">Publications</span></span>
+    <span class="de"><span class="es">Artículos académicos, prefacios, reseñas y columnas.</span><span class="en">Scholarly articles, prefaces, reviews and columns.</span></span><span class="arrow">→</span></a><a href="#escritura"><span class="num"></span>
+    <span class="ti"><span class="es">Escritura creativa</span><span class="en">Creative writing</span></span>
+    <span class="de"><span class="es">Poemas y narrativa en revistas.</span><span class="en">Poems and prose in journals.</span></span><span class="arrow">→</span></a><a href="#traduccion"><span class="num"></span>
+    <span class="ti"><span class="es">Traducción</span><span class="en">Translation</span></span>
+    <span class="de"><span class="es">Libros, poemas y ensayos traducidos.</span><span class="en">Books, poems and essays in translation.</span></span><span class="arrow">→</span></a><a href="#digitales"><span class="num"></span>
+    <span class="ti"><span class="es">Proyectos digitales</span><span class="en">Digital projects</span></span>
+    <span class="de"><span class="es">Escandir y el Mapa literario interactivo.</span><span class="en">Escandir and the interactive literary map.</span></span><span class="arrow">→</span></a><a href="#comunitarios"><span class="num"></span>
+    <span class="ti"><span class="es">Proyectos comunitarios</span><span class="en">Community projects</span></span>
+    <span class="de"><span class="es">Poesía migrante, talleres bilingües y más.</span><span class="en">Migrant poetry, bilingual workshops and more.</span></span><span class="arrow">→</span></a><a href="#docencia"><span class="num"></span>
+    <span class="ti"><span class="es">Docencia</span><span class="en">Teaching</span></span>
+    <span class="de"><span class="es">Cursos y talleres por institución.</span><span class="en">Courses and workshops by institution.</span></span><span class="arrow">→</span></a><a href="#charlas"><span class="num"></span>
+    <span class="ti"><span class="es">Charlas y conferencias</span><span class="en">Talks & conferences</span></span>
+    <span class="de"><span class="es">Ponencias, lecturas y seminarios.</span><span class="en">Papers, readings and seminars.</span></span><span class="arrow">→</span></a><a href="#becas"><span class="num"></span>
+    <span class="ti"><span class="es">Becas y distinciones</span><span class="en">Grants & awards</span></span>
+    <span class="de"><span class="es">Fondos de investigación y viajes.</span><span class="en">Research and travel funding.</span></span><span class="arrow">→</span></a><a href="#prensa"><span class="num"></span>
+    <span class="ti"><span class="es">Prensa y reseñas</span><span class="en">Press & reviews</span></span>
+    <span class="de"><span class="es">Entrevistas y reseñas sobre mi obra.</span><span class="en">Interviews and reviews of my work.</span></span><span class="arrow">→</span></a><a href="#contacto"><span class="num"></span>
+    <span class="ti"><span class="es">Contacto</span><span class="en">Contact</span></span>
+    <span class="de"><span class="es">Escríbeme.</span><span class="en">Get in touch.</span></span><span class="arrow">→</span></a></div>
+ </div>
+ <section class="contact" id="contacto-mini">
+   <div class="wrap">
+     <div class="lead-label" style="text-align:center;"><span class="es">Contacto</span><span class="en">Contact</span></div>
+     <h2><span class="es">Escribamos algo juntas.</span><span class="en">Let’s write something together.</span></h2>
+     <p><span class="es">Colaboraciones, lecturas, talleres, traducción o compartir lecturas.</span><span class="en">Collaborations, readings, workshops, translation, or simply sharing reading.</span></p>
+     <a href="mailto:paulacucurella@gmail.com" class="btn"><span class="es">Enviar un correo</span><span class="en">Send an email</span></a>
+   </div>
+ </section>
+</section><section class="page" id="sobre">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Sobre mí</span><span class="en">About</span></span>
+   <h1><span class="es">Sobre mí</span><span class="en">About</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose">
+ <div class="bilingual-bio"><div class="es"><p class="lead">Escritora, poeta y traductora chilena. Escribo entre lenguas y latitudes: de Chile a Buffalo, de la poesía a la teoría.</p>
+<p>Doctora en Estudios Hispánicos (UC Riverside, 2026) y en Literatura Comparada (University at Buffalo, 2018). Mi investigación reúne la poesía, la traducción y la crítica literaria y filosófica, con foco en la poesía escrita por mujeres en Chile durante la dictadura (1973–1990), el archivo, el testimonio y el trauma.</p>
+<p>He publicado poesía, ensayo y traducción en América Latina y Estados Unidos, y desarrollo proyectos digitales y comunitarios en torno a la escritura migrante y bilingüe.</p></div><div class="en"><p class="lead">Chilean writer, poet and translator. I write between languages and latitudes: from Chile to Buffalo, from poetry to theory.</p>
+<p>Ph.D. in Hispanic Studies (UC Riverside, 2026) and in Comparative Literature (University at Buffalo, 2018). My research brings together poetry, translation and literary-philosophical criticism, focusing on women’s poetry in Chile under the dictatorship (1973–1990), the archive, testimony and trauma.</p>
+<p>I have published poetry, essay and translation across Latin America and the United States, and I develop digital and community projects around migrant and bilingual writing.</p></div></div>
+ <p class="cvbtn"><a href="assets/Paula-Cucurella-CV-2026.pdf" target="_blank" rel="noopener" class="btn"><span class="es">Descargar CV (PDF)</span><span class="en">Download CV (PDF)</span></a></p>
+ <h2 class="subhead"><span class="es">Formación</span><span class="en">Education</span></h2><ul class="cv-list"><li>2026 · Ph.D. in Hispanic Studies, University of California, Riverside. Disertación: <em>The Archive of Lack and Memory-Work in Chilean Feminist Poetry</em>. Co-dirección: Carlos Varón González y Alessandro Fornazzari.</li><li>2018 · Ph.D. in Comparative Literature, University at Buffalo. Disertación: <em>Autoimmunity in Antipoetry</em>. Dirección: Rodolphe Gasché.</li><li>2013 · M.A. in Comparative Literature, University at Buffalo.</li><li>2009 · M.A. en Historia y Teoría del Arte, Universidad de Chile. Tesis: <em>Mitopolítica o la síntesis del arte en el pensamiento de Martin Heidegger</em>. Máxima distinción.</li><li>2004 · Licenciatura en Filosofía, Universidad de Chile. Tesis: <em>Nietzsche y la superación de la metafísica</em>. Máxima distinción.</li></ul>
+ <h2 class="subhead"><span class="es">Experiencia profesional</span><span class="en">Professional experience</span></h2><ul class="cv-list"><li>Teaching Assistant, Hispanic Studies, UC Riverside. 2022–presente.</li><li>Associate In, Hispanic Studies, UC Riverside. 2021–2022, 2025.</li><li>Adjunct Professor, Creative Writing / Bilingual MFA, University of Texas at El Paso. 2018–2021.</li><li>Adjunct Professor, Philosophy, El Paso Community College. 2018–2021.</li><li>Teaching Assistant, Bilingual Creative Writing, UT El Paso. 2015–2016.</li><li>Teaching Assistant, Comparative Literature, University at Buffalo. 2010–2015.</li><li>Adjunct Professor, Arquitectura y Diseño, Universidad Nacional Andrés Bello. 2007–2009.</li></ul>
+ <h2 class="subhead"><span class="es">Formación complementaria</span><span class="en">Additional training</span></h2><ul class="cv-list"><li>Mental Health Allies Bronze Training — UC Riverside (2025).</li><li>Creating an Inclusive Work Environment — UC Berkeley (2025).</li><li>MEI Graduate Student Diversity Certification Program — UC Riverside (2025).</li><li>Disability Ally Training — UC Riverside (2025).</li><li>Blackboard Online Teaching Training — UT El Paso (2018).</li><li>Creative Writing (3 semestres) — Bilingual Dept. of Creative Writing, UT El Paso (2015–2017).</li></ul>
+</div></div></section><section class="page" id="libros">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Libros</span><span class="en">Books</span></span>
+   <h1><span class="es">Libros</span><span class="en">Books</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose"><p class="muted intro"><span class="es">Libros de mi autoría — poesía y ensayo.</span><span class="en">Books I've authored — poetry and essay.</span></p></div>
+ <h2 class="subhead"><span class="es">Poesía</span><span class="en">Poetry</span></h2><div class="books"><article class="book"><div class="cover c1"><div class="t"></div></div>
+        <div class="yr"><span class="es">2023</span><span class="en">2023</span></div><p><em>The last inane days / Los últimos inanes días</em> (edición bilingüe; traducción de Alaric López y Paula Cucurella). Dobleaeditores, Santiago.</p></article><article class="book"><div class="cover c2"><div class="t"></div></div>
+        <div class="yr"><span class="es">2020</span><span class="en">2020</span></div><p><em>Los últimos inanes días</em>. Doblea Editores, Santiago.</p></article><article class="book"><div class="cover c3"><div class="t"></div></div>
+        <div class="yr"><span class="es">2020</span><span class="en">2020</span></div><p><em>Demasiada luz para hacer poesía</em> (ilustraciones de Felipe Cooper; prefacio de Jacques Lezra). Doblea Editores, Santiago.</p></article></div>
+ <h2 class="subhead"><span class="es">Ensayo</span><span class="en">Essay</span></h2><div class="books"><article class="book"><div class="cover c1"><div class="t"></div></div>
+        <div class="yr"><span class="es">Próximamente</span><span class="en">Forthcoming</span></div><p><em>Formas de decirse en falta: violencia sexual, autoritarismo y poesía escrita por mujeres durante la dictadura</em>. Ediciones Macul, Santiago.</p></article><article class="book"><div class="cover c2"><div class="t"></div></div>
+        <div class="yr"><span class="es">2021</span><span class="en">2021</span></div><p><em>Jacques Derrida, Nicanor Parra, y la poesía en tiempos de censura: un ensayo</em>. Pólvora Editorial, Santiago.</p></article></div></div></section><section class="page" id="antologias">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Antologías</span><span class="en">Anthologies</span></span>
+   <h1><span class="es">Antologías</span><span class="en">Anthologies</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose">
+ <p class="muted intro"><span class="es">Antologías que he seleccionado, editado y prologado.</span><span class="en">Anthologies I've selected, edited and prefaced.</span></p>
+ <ul class="cv-list antol"><li><span class="ayr"><span class="es">Próximamente 2027</span><span class="en">Forthcoming 2027</span></span> · <em><span class="es">Poesía escrita por mujeres durante la dictadura</span><span class="en">Poetry written by women during the dictatorship</span></em> — <span class="es">selección y edición de Paula Cucurella. Editorial Póstuma (Chile).</span><span class="en">selected and edited by Paula Cucurella. Editorial Póstuma (Chile).</span> <span class="pending"><span class="es">(enlace por confirmar)</span><span class="en">(link to confirm)</span></span></li><li><span class="ayr">2025</span> · <em>Rabia / Pena. Poesía migrante</em> — <span class="es">selección, edición y prefacio de Paula Cucurella. Dobleaeditores, Santiago.</span><span class="en">selected, edited and prefaced by Paula Cucurella. Dobleaeditores, Santiago.</span></li></ul></div></div></section><section class="page" id="publicaciones">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Publicaciones</span><span class="en">Publications</span></span>
+   <h1><span class="es">Publicaciones</span><span class="en">Publications</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose">
+ <p class="muted intro"><span class="es">Artículos académicos con revisión de pares, además de prefacios, introducciones, reseñas, entrevistas y columnas.</span><span class="en">Peer-reviewed scholarly articles, along with prefaces, introductions, reviews, interviews and columns.</span></p>
+ <h2 class="subhead"><span class="es">Artículos académicos</span><span class="en">Scholarly articles</span></h2><ul class="cv-list"><li>2026 · “Cada cuerpo tiene derecho a su prótesis: testimonio afectivo en poesía de mujeres (Chile: 1973–1990).” [En evaluación].</li><li>2026 · “Canon, infraestructura y cuerpo: operaciones de exclusión y contraarchivo en la poesía chilena de mujeres (1973–1990).” <em>Amoxtli</em>. Forthcoming.</li><li>2026 · “(Re)Placing Testimony: Symptom and Poetry.” <em>Middle Atlantic Review of Latin American Studies</em>, 10(1), 16–40.</li><li>2025 · “Translating the Animal.” [Aceptado con revisiones].</li><li>2025 · “What are we left to dream of. Disability and the promise of higher education. The case of UCR.” <em>LA Progressive</em>.</li><li>2024 · “La forma de la falta. Archivando y leyendo el trauma.” <em>Palabra y Razón</em>, 26, 60–79.</li><li>2024 · “Como banano de rechazo. La representación de lo irrepresentable.” <em>Política Común</em> 16.</li><li>2024 · “Un archivo de la ceguera.” <em>Revista Disenso</em>, Año 5, VI.</li><li>2023 · “Spectral Justice. On symbolic justice and Patricio Guzmán’s cinema.” <em>The New CR</em>, 23(1), 83–103.</li><li>2022 · “Estética de la Ambigüedad y Política en la Antipoesía de Nicanor Parra.” <em>Revista Canadiense de Estudios Hispánicos</em> 44(3), 579–599.</li><li>2021 · “The Ghosts of the Latinx Archive.” <em>MARLAS</em>, 5(2), 146–165.</li><li>2020 · “Beauty Is a Thing of the Past…” <em>CR: The New Centennial Review</em>, 20(1), 185–209.</li><li>2020 · “Acerca del Límite de la Antipoesía…” <em>Revista Laboratorio</em>, 19, U. Diego Portales.</li><li>2018 · “Coming into the Self: Autobiography and Masturbation.” <em>CR: The New Centennial Review</em>, 18.2, 157–180.</li><li>2014 · “A Weak Force. On the Chilean Dictatorship and Visual Arts.” <em>CR: The New Centennial Review</em>, 14.1, 99–127.</li></ul>
+ <h2 class="subhead"><span class="es">Prefacios, introducciones, reseñas, entrevistas y columnas</span><span class="en">Prefaces, introductions, reviews, interviews & columns</span></h2><ul class="cv-list"><li>2026 · [Reseña] “Unsettling Colonialisms. Género y raza en el mundo hispánico global del siglo XIX.” <em>Escrituras Americanas</em>.</li><li>2026 · [Reseña] “Lo que es más y menos que lo literario.” <em>Escrituras Americanas</em>.</li><li>2024 · [Introducción] “De la memoria al arte como archivo…” (con M. del Rosario Acosta). <em>Palabra y Razón</em>, 26, 6–13.</li><li>2024 · [Prefacio] “Coleccionar y ser coleccionadx.” Prefacio a <em>Colección de poesía migrante</em>. Dobleaeditores.</li><li>2024 · [Reseña] “El deseo en el asedio… <em>Asedios al fascismo</em> de Sergio Villalobos Ruminot.” <em>Escrituras Americanas</em>.</li><li>2022 · [Reseña] “Unsettling Colonialisms…” <em>MARLAS</em>, 6(1), 153–158.</li><li>2021 · [Entrevista] “La materia y el accidente. Conversación con Jacques Lezra y su pintura.” ficciondelarazon.org</li><li>2020 · [Reseña] “Buscando un país en otro… <em>Ritos de Pasaje</em> de Kadiri J. Vaquer Fernández.” 80 grados.</li><li>2019 · [Reseña] “The more and less than literary: A Review of Adam Shellhorse’s <em>Anti-Literature</em>.” <em>MARLAS</em>, 3(1), 99–101.</li><li>2019 · [Entrevista] “Fuck Shakespeare. Mecha in the ’80. An Interview with Daniel Chacón.” <em>Latino Studies Journal</em>.</li><li>2019 · [Columna] “La Antipoesía: una poesía pasivo-agresiva.” eldesconcierto.cl</li><li>2019 · [Entrevista] David Johnson: “Como si hubiera literatura.” saposcat.cl</li><li>2018 · [Columna] “La Política Sexual de la Antipoesía.” eldesconcierto.cl</li><li>2018 · [Artículo] “El río que llevamos dentro: un retrato del puente Santa Fe.” eldesconcierto.cl</li><li>2018 · [Reseña] “<em>Parse</em> de Craig Dworkin.” circulodepoesia.com</li><li>2018 · [Columna] “El archivo bilingüe como resistencia.” eldesconcierto.cl</li><li>2018 · [Reseña] “El libro del Padre.” eldesconcierto.cl</li><li>2018 · [Artículo] “Catálogo de cuerpos en El Paso.” saposcat.cl</li></ul>
+</div></div></section><section class="page" id="escritura">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Escritura creativa</span><span class="en">Creative writing</span></span>
+   <h1><span class="es">Escritura creativa</span><span class="en">Creative writing</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose">
+ <p class="muted intro"><span class="es">Poemas y narrativa publicados en revistas y antologías.</span><span class="en">Poems and prose published in journals and anthologies.</span></p>
+ <ul class="cv-list"><li>2025 · [Poesía] “No va en el cuerpo la noche en pena.” <em>Revista Te Leo</em>, No. 33.</li><li>2022 · [Poesía] “Plegaria al padre enfermo”, “A este le robaron el título y el beso.” <em>Los Herederos del Caos</em>.</li><li>2020 · [Poesía] “Patología del exilio”, “Transporte público…” <em>Hasta el Tuétano</em>, No. 3, Madrid.</li><li>2019 · [Cuento] “El misterio de los asesinatos simbólicos” y otros. <em>The Acentos Review</em>.</li><li>2019 · [Poesía] Selección de <em>Demasiada Luz para hacer Poesía</em>. <em>Revista Marcapiel</em>.</li><li>2017 · [Poesía] “Placebo.” <em>Revista Literaria Monolito</em>.</li><li>2017 · [Poesía] “Mal de ditus”, “Trigger”, “Jetlag”, “Rostros Yodados.” <em>La Rabia del Axolotl</em>.</li><li>2017 · [Poesía] “Un invierno para Santiago…” y otros. <em>Círculo de Poesía</em>.</li><li>2011 · [Poesía] “Desayuno a la cama”, “Epitafio”… <em>Revista Laboratorio</em>.</li></ul></div></div></section><section class="page" id="traduccion">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Traducción</span><span class="en">Translation</span></span>
+   <h1><span class="es">Traducción</span><span class="en">Translation</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose">
+ <h2 class="subhead"><span class="es">Libros</span><span class="en">Books</span></h2><ul class="cv-list"><li>2019 · <em>El Mundo en Llamas</em> de David Johnson. Editorial La Pólvora, Santiago.</li><li>2018 · <em>El can de Kant: en torno a Borges, la filosofía y el tiempo de la traducción</em> de David E. Johnson. Metales Pesados, Santiago.</li><li>2015 · <em>Bottles to the Sea</em> de Carlos Estévez (ed. J. E. Gracia; con David E. Johnson). SUNY Press.</li></ul>
+ <h2 class="subhead"><span class="es">En preparación</span><span class="en">Awaiting publication</span></h2><ul class="cv-list"><li><em>Sayal de pieles</em> de Carmen Berenguer (con Jacques Lezra; título de trabajo <em>Hairshirt of Skins/Furs</em>). Derechos concedidos, 2026.</li><li><em>Mi Otra Lengua</em> de Rosa Alcalá (con Andrea Cote; buscando editorial).</li></ul>
+ <h2 class="subhead"><span class="es">Poemas y cuentos</span><span class="en">Poems & short stories</span></h2><ul class="cv-list"><li>2019 · “El cuento de John Boyd” de Daniel Chacón. <em>Rio Grande Review</em>.</li><li>2017 · “¿Qué significa resistir?” de Jeff Sirkin; “A los Censuradores” de Anne Waldman. <em>Círculo de Poesía</em>.</li><li>2017 · Poemas de Rosa Alcalá. <em>Revista Laboratorio</em> y <em>Círculo de Poesía</em>.</li><li>2017 · Poemas de Eileen Myles: “Acerca de María”, “Mi Caja.” <em>Rio Grande Review</em>.</li><li>2017 · Poemas de Sasha Pimentel. <em>Círculo de Poesía</em>.</li></ul>
+ <h2 class="subhead"><span class="es">Capítulos y artículos</span><span class="en">Chapters & articles</span></h2><ul class="cv-list"><li>2023 · “Instituciones defectivas. Un protocolo para la república” de Jacques Lezra. <em>Enrahonar</em> 71.</li><li>2023 · “Lacrimae rerum: institución del duelo” de Jacques Lezra. <em>Palabra y Razón</em> 22.</li><li>2014 · “Asesinato y Símbolo: los restos del femicidio” de David E. Johnson. En <em>Jacques Derrida: Fenomenología, Firma, Traducción</em>.</li></ul>
+</div></div></section><section class="page" id="digitales">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Proyectos digitales</span><span class="en">Digital projects</span></span>
+   <h1><span class="es">Proyectos digitales</span><span class="en">Digital projects</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose"><p class="muted intro"><span class="es">Herramientas y humanidades digitales, ya publicadas en GitHub.</span><span class="en">Digital-humanities tools, already published on GitHub.</span></p></div>
+ <div class="pgrid one"><a class="proj wide" href="https://paulacucurella-pixel.github.io/escandir/" target="_blank" rel="noopener">
+     <div class="thumb t-mig"><span>Escandir</span></div>
+     <div class="body"><span class="badge b-video"><span class="es">Herramienta · En línea</span><span class="en">Tool · Live</span></span>
+     <h3>Escandir — <span class="sub"><span class="es">Análisis de métrica española</span><span class="en">Spanish verse scansion tool</span></span></h3>
+     <p><span class="es">Herramienta interactiva en el navegador para escandir versos en español: cuenta sílabas poéticas (sinalefa y ley del acento final), identifica tipos de verso y estrofa, explica el conteo paso a paso y señala licencias métricas. Funciona local y sin conexión.</span><span class="en">An interactive, browser-based tool to scan Spanish verse: counts poetic syllables (synalepha and the final-accent rule), identifies verse and stanza types, explains the count step by step, and flags metrical licenses. Runs locally and offline.</span></p>
+     <p class="link">paulacucurella-pixel.github.io/escandir/ ↗</p></div></a><a class="proj wide" href="https://paulacucurella-pixel.github.io/MapaInteractivo/" target="_blank" rel="noopener">
+     <div class="thumb t-mig"><span>Mapa literario</span></div>
+     <div class="body"><span class="badge b-video"><span class="es">Herramienta · En línea</span><span class="en">Tool · Live</span></span>
+     <h3>Mapa literario — <span class="sub"><span class="es">Poesía escrita por mujeres en Chile (1973–90)</span><span class="en">Women's poetry in Chile (1973–90)</span></span></h3>
+     <p><span class="es">Mapa digital interactivo que rastrea talleres literarios, revistas y poetas mujeres durante la dictadura chilena.</span><span class="en">An interactive digital map tracking literary workshops, magazines, and women poets during the Chilean dictatorship.</span></p>
+     <p class="link">paulacucurella-pixel.github.io/MapaInteractivo/ ↗</p></div></a></div></div></section><section class="page" id="comunitarios">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Proyectos comunitarios</span><span class="en">Community projects</span></span>
+   <h1><span class="es">Proyectos comunitarios</span><span class="en">Community projects</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="pgrid one"><div class="proj wide static">
+     <div class="body"><span class="badge b-video"><span class="es">Video · Comunitario</span><span class="en">Video · Community</span></span>
+     <h3>Poesía Migrante — Rabia / Pena</h3><p><span class="es">Proyecto de colección y archivo de poesía migrante, en colaboración con la editorial chilena DobleAeditores (2022–2025). Curaduría y contenidos de Paula Cucurella. Incluye registro en video.</span><span class="en">A collection-and-archive project of migrant poetry, in collaboration with Chilean press DobleAeditores (2022–2025). Curated by Paula Cucurella. Includes video.</span></p></div></div><div class="proj wide static">
+     <div class="body"><span class="badge b-live"><span class="es">En curso</span><span class="en">Ongoing</span></span>
+     <h3>Talleres bilingües de escritura creativa</h3><p><span class="es">Talleres bilingües de escritura creativa para apoyo en salud mental y trauma (UC Riverside, 2024–2025); incluye el taller “Making Sense” y colaboraciones con invitados como Timothy Z. Hernández.</span><span class="en">Bilingual creative writing workshops for mental-health and trauma support (UC Riverside, 2024–2025), including the “Making Sense” workshop and guest collaborations such as Timothy Z. Hernández.</span></p></div></div><div class="proj wide static">
+     <div class="body"><span class="badge b-live"><span class="es">En curso</span><span class="en">Ongoing</span></span>
+     <h3>Journaling Verano 2025</h3><p><span class="es">Iniciativa de escritura creativa: diseño y distribución de 70 kits de <em>journaling</em> y coordinación de participación estudiantil durante el verano.</span><span class="en">A creative-writing initiative: designed and distributed 70 journaling kits and coordinated student engagement over the summer.</span></p></div></div><div class="proj wide static">
+     <div class="body"><span class="badge b-live"><span class="es">En curso</span><span class="en">Ongoing</span></span>
+     <h3>Lenu</h3><p><span class="es">Proyecto en curso. Se conserva aquí como ventana tras cerrar su sitio independiente. (Contenido por completar.)</span><span class="en">An ongoing project, kept here as a window after closing its standalone site. (Content to be added.)</span></p></div></div><div class="proj wide static">
+     <div class="body"><span class="badge b-arch"><span class="es">Archivo</span><span class="en">Archive</span></span>
+     <h3>Taller Bilingüe (TBD)</h3><p><span class="es">Proyecto anterior, conservado como archivo. (Contenido por completar.)</span><span class="en">An earlier project, kept here as an archive. (Content to be added.)</span></p></div></div><div class="proj wide static">
+     <div class="body"><span class="badge b-live"><span class="es">En curso</span><span class="en">Ongoing</span></span>
+     <h3>Voluntariado — Pup Culture Rescue</h3><p><span class="es">Voluntaria en un refugio de animales (turnos de perrera, 4 horas por semana), desde 2026.</span><span class="en">Volunteer at an animal shelter (kennel shifts, 4 hours a week), since 2026.</span></p></div></div></div></div></section><section class="page" id="docencia">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Docencia</span><span class="en">Teaching</span></span>
+   <h1><span class="es">Docencia</span><span class="en">Teaching</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose"><h2 class="subhead"><span class="es">University of California, Riverside</span><span class="en">University of California, Riverside</span></h2><ul class="cv-list"><li>2025 · SPN 172. Testimonio and Cultural History.</li><li>2025 · SPN 101B. Cuento feminista hispanoamericano: género, raza, clase.</li><li>2024 · SPN 004 / 005. Español intermedio.</li><li>2023–24 · SPN 001 / 002. Español (principiantes).</li><li>2022 · SPN 188. Cultural Translation: Border, Immigration, and Home.</li><li>2021 · SPN 172. Testimonio and Cultural History: Autobiography in Context.</li></ul><h2 class="subhead"><span class="es">University of Texas at El Paso — MFA / Graduate</span><span class="en">University of Texas at El Paso — MFA / Graduate</span></h2><ul class="cv-list"><li>2021 · Lyric Poetry of Mourning and Loss.</li><li>2019 · Kafka and the Absurd · Poetics · Advanced Poetry Writing (Poetry Lab).</li><li>2018–2020 · Genre and Gender: Feminism in Literature.</li><li>2018 · Poetry of the Margins · Forms and Techniques of Poetry.</li></ul><h2 class="subhead"><span class="es">University of Texas at El Paso — Undergraduate</span><span class="en">University of Texas at El Paso — Undergraduate</span></h2><ul class="cv-list"><li>2021 · Narrative Techniques: Plot and Narrative Design.</li><li>2020 · Theory and Methods: Reading and Interpretation (Honors).</li><li>2019 · Senior Seminar: Kafka and the Absurd.</li><li>2016–2018 · Introduction to Creative Writing.</li></ul><h2 class="subhead"><span class="es">El Paso Community College</span><span class="en">El Paso Community College</span></h2><ul class="cv-list"><li>2018–2021 · Introduction to Philosophy · Ethics.</li></ul><h2 class="subhead"><span class="es">Universidade Estadual Paulista (UNESP), Brasil</span><span class="en">Universidade Estadual Paulista (UNESP), Brasil</span></h2><ul class="cv-list"><li>2022 · Poetry, Territory, and Deterritorialization (mini-curso de maestría y doctorado).</li></ul><h2 class="subhead"><span class="es">Midwestern State University</span><span class="en">Midwestern State University</span></h2><ul class="cv-list"><li>2021 · Feminist Philosophy.</li></ul><h2 class="subhead"><span class="es">University at Buffalo</span><span class="en">University at Buffalo</span></h2><ul class="cv-list"><li>2010–2013 · Beginning / Intensive Spanish · New World Imaginations: Latin American Identities.</li></ul><h2 class="subhead"><span class="es">Universidad Andrés Bello, Santiago</span><span class="en">Universidad Andrés Bello, Santiago</span></h2><ul class="cv-list"><li>2007–2009 · Antropología filosófica · Ética · Estética.</li></ul></div></div></section><section class="page" id="charlas">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Charlas y conferencias</span><span class="en">Talks & conferences</span></span>
+   <h1><span class="es">Charlas y conferencias</span><span class="en">Talks & conferences</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose"><p class="muted intro"><span class="es">Selección de ponencias, lecturas, seminarios y conferencias.</span><span class="en">A selection of papers, readings, seminars and conferences.</span></p></div>
+ <div class="filters" data-target="talks">
+   <button data-f="pres" class="on"><span class="es">Presentaciones</span><span class="en">Presentations</span></button>
+   <button data-f="all"><span class="es">Todas</span><span class="en">All</span></button>
+ </div>
+ <ul class="cv-list talks"><li data-type="pres">2026 · “Escribir donde el cuerpo falta…” So Cal Critical Theory Group, UC Irvine.</li><li data-type="pres">2026 · Indexing Bodies, Positioning Resistances: Chilean Women’s Poetry (1973–1990). ACLA Annual Meeting.</li><li data-type="pres">2025 · “Making Sense: Bilingual Creative Writing Practices for Trauma Awareness.” UC Humanities Research Institute, UC Irvine.</li><li data-type="pres">2025 · Symptom and Translation: A Psychoanalytic Approach to Trauma’s Language. ACLA (co-organizadora y ponente).</li><li data-type="pres">2025 · Chilean women’s poetry during the dictatorship. Clase invitada, seminario de M. del R. Acosta, UC Riverside.</li><li data-type="pres">2024 · “Somatic writing.” Bilingual Creative Writing Workshop, UC Riverside (organizadora y facilitadora).</li><li data-type="pres">2024 · “Time for the untranslated.” PAMLA, Palm Springs (co-organizadora y ponente).</li><li data-type="pres">2024 · “Tiempo para lo intraducido.” Jornadas de Traductología, U. Católica de Temuco.</li><li data-type="pres">2024 · “Binding.” Seminario Crítico-Político, U. Complutense de Madrid.</li><li data-type="pres">2024 · “The time of reparation.” Comentario a <em>Colonial Debts</em> de Rocío Zambrana (USC/UCR).</li><li data-type="pres">2024 · “Making sense.” Taller bilingüe de escritura creativa, UCR.</li><li data-type="pres">2023 · “How did I recover the world in pieces. Writing and Ethics.” Poetic Pathways, Elon University.</li><li data-type="pres">2023 · “Poliglossia in <em>Sayal de Pieles</em> by Carmen Berenguer.” PCA-ACA, San Antonio.</li><li data-type="pres">2023 · “Poetics of origin in <em>Río herido</em> by Daniela Catrileo.” ACLA, Chicago.</li><li data-type="pres">2022 · “Domestic Exiles in Chilean Poetry…” PAMLA, Los Ángeles (co-organizadora y ponente).</li><li data-type="pres">2022 · “Narratives of Home and Homelessness.” RMMLA, Albuquerque (co-organizadora y ponente).</li><li data-type="pres">2022 · “Narratives in Transit: Buscando cuerpos, contando ausencias.” LASA.</li><li data-type="pres">2022 · “Spectral Justice…” Midwest Conference on Literature, Language and Media, Chicago.</li><li data-type="pres">2022 · “Or on poetry as archive.” Political Concepts Graduate Conference, NSSR, NY.</li><li data-type="pres">2021 · Presentación de <em>Asedios al Fascismo</em> de Sergio Villalobos Ruminott.</li><li data-type="pres">2021 · “Contando ausencias, buscando cuerpos.” U. of Michigan, Ann Arbor.</li><li data-type="pres">2021 · “Narratives in Transit.” MLA Conference.</li><li data-type="pres">2020 · “Hannah Arendt: Fascism, Totalitarianism, and Immigration.” EPCC Philosophy Club.</li><li data-type="pres">2020 · “Escenas de Familia.” Lanzamiento de <em>Escenas de Escritura</em> (Pólvora).</li><li data-type="pres">2020 · “The Metaphor.” Clase invitada, seminario de Jacques Lezra, UC Riverside.</li><li data-type="pres">2019 · “Poetics of Erasure. The Cinema of Patricio Guzmán.” RMMLA, El Paso.</li><li data-type="pres">2019 · “The Ghost of the LatinX archive. On the poetry of Rosa Alcalá.” LASA, Boston.</li><li data-type="pres">2019 · “Gender and Genre: The Idiom of the Canon.” ACLA, Washington.</li><li data-type="pres">2019 · “Fearless Writing: Notes on Censorship and the Ethics of Writing.” UTEP.</li><li data-type="pres">2018 · “How to fall in love with poetry.” Olli Lecture Series, UT El Paso.</li><li data-type="pres">2013 · “Autobiography and the Secret.” Comparative Literature, University at Buffalo.</li><li data-type="pres">2012 · “Ni Chicha ni Limoná. Nicanor Parra y la Economía de la Subversión.” LASA, San Francisco.</li><li data-type="pres">2012 · “By Force of Image.” ACLA, Providence.</li><li data-type="pres">2011 · “Heidegger’s Limit.” Graduate Conference, University at Buffalo.</li><li data-type="pres">2011 · “Mythopoetics/Mythopolitics: Heidegger’s Readings of Poetry.” Binghamton University.</li><li data-type="pres">2009 · “Mitopoética, Mitopolítica…” Congreso Nacional de Filosofía, Santiago.</li><li data-type="att">2025 · Creative Writing Pedagogies for Health Narratives and Historical Trauma. UC Irvine (asistente).</li><li data-type="att">2025 · Alienation in History. Estrangement in Language. U. of Florence, Italia (asistente).</li><li data-type="att">2025 · Memoires for Jacques Derrida. Conf. organizada por Catherine Malabou, UC Irvine (asistente).</li><li data-type="att">2024 · Against the Carceral Archive. Lecture de Damien Sojoyner, UC Riverside (asistente).</li></ul></div></section><section class="page" id="becas">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Becas y distinciones</span><span class="en">Grants & awards</span></span>
+   <h1><span class="es">Becas y distinciones</span><span class="en">Grants & awards</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose">
+ <h2 class="subhead"><span class="es">Becas y fondos</span><span class="en">Grants & fellowships</span></h2><ul class="cv-list"><li>2026–27 · Graduate Student Dissertation Support, UC Humanities Research Institute (UCHRI). Investigación en el Archivo Nacional Histórico de Chile (Fondo Isis Internacional).</li><li>2025 · Propes Fellowship, UC Riverside — viaje a la conferencia “Alienation in History”, Florencia.</li><li>2025–26 · Chicano Latino Alumni Scholarship, UC Riverside.</li><li>2025–26 · Dissertation Completion Year Fellowship, UC Riverside Graduate School.</li><li>2025 · Hispanic Studies Summer Research Grant — entrevistas e investigación en Chile.</li><li>2025 · Humanities Graduate Student Research Grant, Center for Ideas and Society — Chile.</li><li>2024 · Propes Fellowship (×2) — PAMLA (California) y Seminario Crítico-Político (Madrid).</li><li>2024 · Humanities Graduate Student Research Grant — Biblioteca Nacional de Chile.</li><li>2023–26 · HHDJ Graduate Fellow Grant, UC Riverside — trauma y escritura.</li><li>2023 · Propes Fellowship — ACLA, Chicago.</li><li>2022 · Graduate Student Grant, PAMLA, Los Ángeles.</li><li>2022 · Humanities Summer Research Grant, Center for Ideas and Society — Araraquara, Brasil.</li><li>2014 · Capen Research Fellowship, University at Buffalo — 10 meses en París.</li><li>2008 · Thesis Grant, Universidad de Chile — 9 semanas en Warwick, UK.</li></ul>
+ <h2 class="subhead"><span class="es">Fondos para organizar eventos y talleres</span><span class="en">Grants to organize events & workshops</span></h2><ul class="cv-list"><li>2024 · Addressing Bias and Bigotry Grant, UC Riverside — Taller bilingüe de escritura creativa para apoyo en salud mental y trauma (2024–2025).</li><li>2024 · CIS co-patrocinio — taller de Timothy Z. Hernández, “Write from where you are.”</li><li>2024 · CIS co-patrocinio — XIV Conferencia Anual de Posgrado, <em>Within and Beyond the Impasse</em>.</li></ul>
+</div></div></section><section class="page" id="prensa">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Prensa y reseñas</span><span class="en">Press & reviews</span></span>
+   <h1><span class="es">Prensa y reseñas</span><span class="en">Press & reviews</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose"><ul class="cv-list"><li>2025 · Entrevista a Paula Cucurella / Sobre <em>Rabia / Pena. Poesía migrante</em>. <a href="https://ficciondelarazon.org/2025/12/01/entrevista-a-paula-cucurella-sobre-rabia-pena-poesia-migrante/" target="_blank" rel="noopener">↗</a></li><li>2023 · Reseña de <em>Los últimos inanes días</em> por Miguel Ángel Hermosilla, <em>Carcaj</em>. <a href="https://carcaj.cl" target="_blank" rel="noopener">↗</a></li><li>2022 · Reseña de <em>Jacques Derrida &amp; Nicanor Parra</em> por C. Olivares Molina, <em>MARLAS</em> 6(1), 159–162.</li><li>2021 · Entrevista en <em>Words on a Wire</em>.</li><li>2020 · Sobre <em>Demasiada luz para hacer poesía</em>, dossier en ficciondelarazon.org <a href="https://ficciondelarazon.org" target="_blank" rel="noopener">↗</a></li></ul></div></div></section><section class="page" id="contacto">
+ <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
+   <span class="crumb"><span class="es">Contacto</span><span class="en">Contact</span></span>
+   <h1><span class="es">Contacto</span><span class="en">Contact</span></h1></div></div>
+ <div class="wrap-narrow sec-body"><div class="prose" style="text-align:center;">
+ <p class="lead" style="margin-bottom:30px;"><span class="es">¿Conversamos sobre poesía, traducción o un proyecto?</span><span class="en">Shall we talk about poetry, translation or a project?</span></p>
+ <p><a class="btn" href="mailto:paulacucurella@gmail.com">paulacucurella@gmail.com</a></p>
+</div></div></section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>© <span id="yr"></span> Paula Cucurella</div>
+    <div>
+      <a href="assets/Paula-Cucurella-CV-2026.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="mailto:paulacucurella@gmail.com"><span class="es">Correo</span><span class="en">Email</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+
+  // idioma
+  function setLang(l){
+    document.body.classList.remove('lang-es','lang-en');
+    document.body.classList.add('lang-'+l);
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-set]').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-set')===l);
+    });
+    store('pc_lang',l);
+  }
+  document.querySelectorAll('[data-set]').forEach(function(b){
+    b.addEventListener('click',function(){
+      setLang(b.getAttribute('data-set'));
+      var sp=document.getElementById('splash'); if(sp) sp.style.display='none';
+    });
+  });
+  var saved=load('pc_lang');
+  if(saved){ setLang(saved); document.getElementById('splash').style.display='none'; }
+  else { setLang('es'); }
+
+  // router
+  var pages=document.querySelectorAll('.page');
+  function show(id){
+    var found=false;
+    pages.forEach(function(p){var on=p.id===id;p.classList.toggle('active',on);if(on)found=true;});
+    if(!found){document.getElementById('inicio').classList.add('active');id='inicio';}
+    document.querySelectorAll('nav.menu a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===id);});
+    window.scrollTo({top:0,behavior:'auto'});
+  }
+  function cur(){return (location.hash||'#inicio').replace('#','');}
+  window.addEventListener('hashchange',function(){show(cur());});
+  show(cur());
+
+  // menú móvil
+  var btn=document.querySelector('.menu-btn'), menu=document.querySelector('nav.menu');
+  btn.addEventListener('click',function(){
+    var open=menu.style.display==='flex';menu.style.display=open?'none':'flex';
+    if(!open){menu.style.flexDirection='column';menu.style.position='absolute';menu.style.right='34px';menu.style.top='74px';menu.style.background='var(--paper)';menu.style.padding='20px 24px';menu.style.borderRadius='12px';menu.style.gap='14px';menu.style.boxShadow='0 14px 34px rgba(35,41,31,.16)';}
+  });
+  document.querySelectorAll('nav.menu a').forEach(function(a){a.addEventListener('click',function(){if(window.innerWidth<=860)menu.style.display='none';});});
+
+  // filtro charlas
+  var fb=document.querySelector('.filters[data-target="talks"]');
+  if(fb){
+    var items=document.querySelectorAll('ul.talks li');
+    function applyF(f){ items.forEach(function(li){ li.style.display=(f==='all'||li.getAttribute('data-type')==='pres')?'':'none'; }); }
+    applyF('pres');
+    fb.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+      fb.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');applyF(b.getAttribute('data-f'));});
+  }
+})();
+</script>
+</body>
+</html>
