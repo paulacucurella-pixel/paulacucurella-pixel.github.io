@@ -214,6 +214,21 @@ body.lang-en .es{display:none;} body.lang-es .en{display:none;}
 .cv-list.antol li{font-size:16.5px;}
 .ayr{color:var(--sage-deep);font-weight:600;}
 .pending{color:var(--clay);font-size:13px;font-style:italic;}
+.book .cover.has-img{background:#F4EEE1;}
+.book .cover.has-img img{width:100%;height:100%;display:block;}
+.book .cover.fit-cover img{object-fit:cover;}
+.book .cover.fit-contain{background:#FBF9F3;}
+.book .cover.fit-contain img{object-fit:contain;padding:6px;}
+.tr-feature{display:flex;gap:26px;align-items:flex-start;margin:6px 0 30px;}
+.tr-feature .cover{flex:0 0 148px;width:148px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;box-shadow:0 12px 30px rgba(35,41,31,.14);background:#FBF9F3;}
+.tr-feature .cover img{width:100%;height:100%;object-fit:cover;display:block;}
+.tr-feature .tf-txt{flex:1;}
+.tr-feature .tf-txt .yr{color:var(--sage-deep);font-weight:600;font-size:14px;margin-bottom:6px;}
+.tr-feature .tf-txt p{color:var(--ink-soft);font-size:15.5px;line-height:1.55;margin:0;}
+.tr-feature .tf-txt em{color:var(--ink);font-style:italic;}
+@media(max-width:560px){.tr-feature{flex-direction:column;}.tr-feature .cover{flex-basis:auto;}}
+.proj .thumb.thumb-img{padding:0;overflow:hidden;}
+.proj .thumb.thumb-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .cv-list li a{color:var(--sage-deep);}
 .intro{font-size:17px;margin-bottom:10px;}
 .crumb-link{font-size:13px;color:var(--sage);text-decoration:none;font-weight:600;margin-right:12px;}
@@ -324,12 +339,12 @@ body.lang-en .es{display:none;} body.lang-es .en{display:none;}
    <span class="crumb"><span class="es">Libros</span><span class="en">Books</span></span>
    <h1><span class="es">Libros</span><span class="en">Books</span></h1></div></div>
  <div class="wrap-narrow sec-body"><div class="prose"><p class="muted intro"><span class="es">Libros de mi autoría — poesía y ensayo.</span><span class="en">Books I've authored — poetry and essay.</span></p></div>
- <h2 class="subhead"><span class="es">Poesía</span><span class="en">Poetry</span></h2><div class="books"><article class="book"><div class="cover c1"><div class="t"></div></div>
-        <div class="yr"><span class="es">2023</span><span class="en">2023</span></div><p><em>The last inane days / Los últimos inanes días</em> (edición bilingüe; traducción de Alaric López y Paula Cucurella). Dobleaeditores, Santiago.</p></article><article class="book"><div class="cover c2"><div class="t"></div></div>
-        <div class="yr"><span class="es">2020</span><span class="en">2020</span></div><p><em>Los últimos inanes días</em>. Doblea Editores, Santiago.</p></article><article class="book"><div class="cover c3"><div class="t"></div></div>
+ <h2 class="subhead"><span class="es">Poesía</span><span class="en">Poetry</span></h2><div class="books"><article class="book"><div class="cover has-img fit-cover"><img loading="lazy" src="assets/img/ultimos-inanes-dias.webp" alt=""></div>
+        <div class="yr"><span class="es">2023</span><span class="en">2023</span></div><p><em>The last inane days / Los últimos inanes días</em> (edición bilingüe; traducción de Alaric López y Paula Cucurella). Dobleaeditores, Santiago.</p></article><article class="book"><div class="cover has-img fit-cover"><img loading="lazy" src="assets/img/ultimos-inanes-dias.webp" alt=""></div>
+        <div class="yr"><span class="es">2020</span><span class="en">2020</span></div><p><em>Los últimos inanes días</em>. Doblea Editores, Santiago.</p></article><article class="book"><div class="cover has-img fit-contain"><img loading="lazy" src="assets/img/demasiada-luz.jpg" alt=""></div>
         <div class="yr"><span class="es">2020</span><span class="en">2020</span></div><p><em>Demasiada luz para hacer poesía</em> (ilustraciones de Felipe Cooper; prefacio de Jacques Lezra). Doblea Editores, Santiago.</p></article></div>
  <h2 class="subhead"><span class="es">Ensayo</span><span class="en">Essay</span></h2><div class="books"><article class="book"><div class="cover c1"><div class="t"></div></div>
-        <div class="yr"><span class="es">Próximamente</span><span class="en">Forthcoming</span></div><p><em>Formas de decirse en falta: violencia sexual, autoritarismo y poesía escrita por mujeres durante la dictadura</em>. Ediciones Macul, Santiago.</p></article><article class="book"><div class="cover c2"><div class="t"></div></div>
+        <div class="yr"><span class="es">Próximamente</span><span class="en">Forthcoming</span></div><p><em>Formas de decirse en falta: violencia sexual, autoritarismo y poesía escrita por mujeres durante la dictadura</em>. Ediciones Macul, Santiago.</p></article><article class="book"><div class="cover has-img fit-cover"><img loading="lazy" src="https://static.wixstatic.com/media/5e4bb6_9a36f0af4f2a4150b00c14f01fa0ef77~mv2.jpg" alt=""></div>
         <div class="yr"><span class="es">2021</span><span class="en">2021</span></div><p><em>Jacques Derrida, Nicanor Parra, y la poesía en tiempos de censura: un ensayo</em>. Pólvora Editorial, Santiago.</p></article></div></div></section><section class="page" id="antologias">
  <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
    <span class="crumb"><span class="es">Antologías</span><span class="en">Anthologies</span></span>
@@ -355,6 +370,10 @@ body.lang-en .es{display:none;} body.lang-es .en{display:none;}
    <span class="crumb"><span class="es">Traducción</span><span class="en">Translation</span></span>
    <h1><span class="es">Traducción</span><span class="en">Translation</span></h1></div></div>
  <div class="wrap-narrow sec-body"><div class="prose">
+ <div class="tr-feature">
+ <div class="cover"><img loading="lazy" src="assets/img/el-can-de-kant.jpg" alt="El can de Kant"></div>
+ <div class="tf-txt"><div class="yr">2018 · Metales Pesados, Santiago</div>
+  <p><em>El can de Kant: en torno a Borges, la filosofía y el tiempo de la traducción</em>, <span class="es">de David E. Johnson. Traducción de Paula Cucurella.</span><span class="en">by David E. Johnson. Translated by Paula Cucurella.</span></p></div></div>
  <h2 class="subhead"><span class="es">Libros</span><span class="en">Books</span></h2><ul class="cv-list"><li>2019 · <em>El Mundo en Llamas</em> de David Johnson. Editorial La Pólvora, Santiago.</li><li>2018 · <em>El can de Kant: en torno a Borges, la filosofía y el tiempo de la traducción</em> de David E. Johnson. Metales Pesados, Santiago.</li><li>2015 · <em>Bottles to the Sea</em> de Carlos Estévez (ed. J. E. Gracia; con David E. Johnson). SUNY Press.</li></ul>
  <h2 class="subhead"><span class="es">En preparación</span><span class="en">Awaiting publication</span></h2><ul class="cv-list"><li><em>Sayal de pieles</em> de Carmen Berenguer (con Jacques Lezra; título de trabajo <em>Hairshirt of Skins/Furs</em>). Derechos concedidos, 2026.</li><li><em>Mi Otra Lengua</em> de Rosa Alcalá (con Andrea Cote; buscando editorial).</li></ul>
  <h2 class="subhead"><span class="es">Poemas y cuentos</span><span class="en">Poems & short stories</span></h2><ul class="cv-list"><li>2019 · “El cuento de John Boyd” de Daniel Chacón. <em>Rio Grande Review</em>.</li><li>2017 · “¿Qué significa resistir?” de Jeff Sirkin; “A los Censuradores” de Anne Waldman. <em>Círculo de Poesía</em>.</li><li>2017 · Poemas de Rosa Alcalá. <em>Revista Laboratorio</em> y <em>Círculo de Poesía</em>.</li><li>2017 · Poemas de Eileen Myles: “Acerca de María”, “Mi Caja.” <em>Rio Grande Review</em>.</li><li>2017 · Poemas de Sasha Pimentel. <em>Círculo de Poesía</em>.</li></ul>
@@ -378,7 +397,7 @@ body.lang-en .es{display:none;} body.lang-es .en{display:none;}
  <div class="page-hero"><div class="wrap"><a class="crumb-link" href="#inicio"><span class="es">Índice</span><span class="en">Index</span></a>
    <span class="crumb"><span class="es">Proyectos comunitarios</span><span class="en">Community projects</span></span>
    <h1><span class="es">Proyectos comunitarios</span><span class="en">Community projects</span></h1></div></div>
- <div class="wrap-narrow sec-body"><div class="pgrid one"><div class="proj wide static">
+ <div class="wrap-narrow sec-body"><div class="pgrid one"><div class="proj wide static"><div class="thumb thumb-img"><img loading="lazy" src="assets/img/poesia-migrante.jpg" alt=""></div>
      <div class="body"><span class="badge b-video"><span class="es">Video · Comunitario</span><span class="en">Video · Community</span></span>
      <h3>Poesía Migrante — Rabia / Pena</h3><p><span class="es">Proyecto de colección y archivo de poesía migrante, en colaboración con la editorial chilena DobleAeditores (2022–2025). Curaduría y contenidos de Paula Cucurella. Incluye registro en video.</span><span class="en">A collection-and-archive project of migrant poetry, in collaboration with Chilean press DobleAeditores (2022–2025). Curated by Paula Cucurella. Includes video.</span></p></div></div><div class="proj wide static">
      <div class="body"><span class="badge b-live"><span class="es">En curso</span><span class="en">Ongoing</span></span>
